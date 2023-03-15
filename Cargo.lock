@@ -657,6 +657,20 @@ name = "bytemuck"
 version = "1.13.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "17febce684fd15d89027105661fec94afb475cb995fbc59d2865198446ba2eea"
+dependencies = [
+ "bytemuck_derive",
+]
+
+[[package]]
+name = "bytemuck_derive"
+version = "1.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1aca418a974d83d40a0c1f0c5cba6ff4bc28d8df099109ca459a2118d40b6322"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "byteorder"
@@ -4265,6 +4279,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "num-derive"
+version = "0.3.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "876a53fff98e03a936a674b29568b0e605f06b29372c2489ff4de23f1949743d"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "num-format"
 version = "0.4.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4541,10 +4566,12 @@ dependencies = [
  "frame-support",
  "frame-system",
  "parity-scale-codec",
+ "risc0-zkvm",
  "scale-info",
  "sp-core",
  "sp-io",
  "sp-runtime",
+ "sp-std",
 ]
 
 [[package]]
@@ -5467,6 +5494,98 @@ dependencies = [
  "web-sys",
  "winapi",
 ]
+
+[[package]]
+name = "risc0-circuit-rv32im"
+version = "0.13.0"
+source = "git+https://github.com/justinFrevert/risc0?branch=no_std-fix#003b4b0b2fd8febebfe886638d2ab96cc9268a99"
+dependencies = [
+ "anyhow",
+ "log",
+ "risc0-core",
+ "risc0-zkp",
+ "risc0-zkvm-platform",
+ "tracing",
+]
+
+[[package]]
+name = "risc0-core"
+version = "0.13.0"
+source = "git+https://github.com/justinFrevert/risc0?branch=no_std-fix#003b4b0b2fd8febebfe886638d2ab96cc9268a99"
+dependencies = [
+ "bytemuck",
+ "rand_core 0.6.4",
+]
+
+[[package]]
+name = "risc0-zeroio"
+version = "0.13.0"
+source = "git+https://github.com/justinFrevert/risc0?branch=no_std-fix#003b4b0b2fd8febebfe886638d2ab96cc9268a99"
+dependencies = [
+ "bytemuck",
+ "impl-trait-for-tuples",
+ "log",
+ "risc0-zeroio-derive",
+ "risc0-zkvm-platform",
+ "tracing",
+]
+
+[[package]]
+name = "risc0-zeroio-derive"
+version = "0.13.0"
+source = "git+https://github.com/justinFrevert/risc0?branch=no_std-fix#003b4b0b2fd8febebfe886638d2ab96cc9268a99"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "risc0-zkp"
+version = "0.13.0"
+source = "git+https://github.com/justinFrevert/risc0?branch=no_std-fix#003b4b0b2fd8febebfe886638d2ab96cc9268a99"
+dependencies = [
+ "anyhow",
+ "blake2",
+ "bytemuck",
+ "digest 0.10.6",
+ "hex",
+ "log",
+ "paste",
+ "rand_core 0.6.4",
+ "risc0-core",
+ "risc0-zeroio",
+ "risc0-zkvm-platform",
+ "serde",
+ "sha2 0.10.6",
+ "tracing",
+]
+
+[[package]]
+name = "risc0-zkvm"
+version = "0.13.0"
+source = "git+https://github.com/justinFrevert/risc0?branch=no_std-fix#003b4b0b2fd8febebfe886638d2ab96cc9268a99"
+dependencies = [
+ "anyhow",
+ "bytemuck",
+ "cfg-if",
+ "hex",
+ "log",
+ "num-derive",
+ "num-traits",
+ "risc0-circuit-rv32im",
+ "risc0-core",
+ "risc0-zeroio",
+ "risc0-zkp",
+ "risc0-zkvm-platform",
+ "serde",
+ "tracing",
+]
+
+[[package]]
+name = "risc0-zkvm-platform"
+version = "0.13.0"
+source = "git+https://github.com/justinFrevert/risc0?branch=no_std-fix#003b4b0b2fd8febebfe886638d2ab96cc9268a99"
 
 [[package]]
 name = "rocksdb"
