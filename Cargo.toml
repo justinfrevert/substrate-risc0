@@ -3,6 +3,11 @@ members = [
     "node",
     "pallets/template",
     "runtime",
+    # "provers/*"
+]
+
+exclude = [
+    "provers"
 ]
 [profile.release]
 panic = "unwind"
