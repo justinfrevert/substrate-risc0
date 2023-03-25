@@ -1,6 +1,16 @@
-# Substrate Risc0 Verifier Pallet
+# Substrate Risc0
+This repository contains an example Substrate chain I'm using to explore my curiosity on the potential of zero knowledge proof verification on-chain. Specifically, the chain contains a pallet which knows how to verify `Receipts` from Risc0 programs.
 
-### Hello Risc0
-A Substrate chain with a pallet demonstrating how to verify Risc0 receipts, based initially on this Risc0 [branch](https://github.com/justinFrevert/risc0/tree/no_std-fix). The pallet has hard-coded values to verify the "Hello multiply!" Risc0 [tutorial](https://www.risczero.com/docs/examples/hello_multiply)
+This might be a good starting point for those looking to experiment with Risc0 verification on Substrate chains.
 
-TBD: more verification experiments in the Substrate runtime 🤠
+## Getting started with Risc0
+See [this tutorial](https://www.risczero.com/docs/examples/hello_multiply) for an introduction to the prover and verifier used here.
+
+## Prover
+The host cost runs the existing "factors" example from Risc0. This component uses [Subxt](https://github.com/paritytech/subxt) to send transactions to the chain.
+
+## Verifier
+The pallet serves as the verifier, using the [risc0-zkvm ](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/). 
+
+## More to come
+Cooler examples, etc. TBD
