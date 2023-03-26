@@ -8,9 +8,8 @@ See [this tutorial](https://www.risczero.com/docs/examples/hello_multiply) for a
 
 ## Prover
 The host cost runs the existing "factors" example from Risc0. This component uses [Subxt](https://github.com/paritytech/subxt) to send transactions to the chain.
-
+Current examples:
+- factors(risc0 hello world)
+- wasm
 ## Verifier
 The pallet serves as the verifier, using the [risc0-zkvm ](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/). 
-
-## More to come
-Cooler examples, etc. TBD
