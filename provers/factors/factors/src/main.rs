@@ -41,11 +41,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut prover = Prover::new(MULTIPLY_ELF).expect(
         "Prover should be constructed from valid method source code and corresponding method ID",
     );
-    println!("Ading input to proof");
 
     // Next we send a & b to the guest
     prover.add_input_u32_slice(&to_vec(&a).expect("should be serializable"));
-    println!("Ading input to proof");
     prover.add_input_u32_slice(&to_vec(&b).expect("should be serializable"));
     println!("Running prover...");
     // Run prover & generate receipt
@@ -72,9 +70,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .tx()
         .sign_and_submit_then_watch_default(
             &myexamplenode::tx().template_module().send_factors_receipt(
-                // receipt.journal,
+                receipt.journal,
                 receipt.seal,
-                // MULTIPLY_ID
             ),
             &signer
         )

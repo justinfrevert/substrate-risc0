@@ -21,7 +21,7 @@ pub mod pallet {
 	use frame_support::pallet_prelude::*;
 	use frame_system::pallet_prelude::*;
 	use risc0_zkvm::Receipt;
-	use crate::common::{MULTIPLY_IMAGE_ID, MULTIPLY_JOURNAL};
+	use crate::common::MULTIPLY_IMAGE_ID;
 	use sp_std::vec::Vec;
 
 	#[pallet::pallet]
@@ -56,10 +56,12 @@ pub mod pallet {
 		// Risc0 factors example
 		pub fn send_factors_receipt(
 			origin: OriginFor<T>,
+			// Caution: in a real Substrate chain, you'd use `BoundedVec` for any of these large inputs
+			journal: Vec<u8>,
 			seal: Vec<u32>
 		) -> DispatchResult {
 			ensure_signed(origin)?;
-			let receipt = Receipt::new(&MULTIPLY_JOURNAL, &seal);
+			let receipt = Receipt::new(&journal, &seal);
 			receipt.verify(&MULTIPLY_IMAGE_ID).map_err(|_| Error::<T>::FailedVerification)?;
 			Self::deposit_event(Event::<T>::VerificationSuccess);
 			Ok(())
