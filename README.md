@@ -3,6 +3,9 @@ This repository contains an example Substrate chain I'm using to explore my curi
 
 This might be a good starting point for those looking to experiment with Risc0 verification on Substrate chains.
 
+## Status
+This code may be a bit out-of-date for both Substrate and RISC Zero. For a more up-to-date example, see https://github.com/justinfrevert/Project-TOEP.
+
 ## Getting started with Risc0
 See [this tutorial](https://www.risczero.com/docs/examples/hello_multiply) for an introduction to the prover and verifier used here.
 
