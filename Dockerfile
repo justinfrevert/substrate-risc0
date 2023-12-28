@@ -1,17 +1,14 @@
-# This is an example build stage for the node template. Here we create the binary in a temporary image.
-
-# This is a base image to build substrate nodes
 FROM docker.io/paritytech/ci-linux:production as builder
-
+LABEL maintainer="vivekvpandya@gmail.com"
 WORKDIR /node-template
 COPY . .
-RUN cargo build --locked --release
+RUN cargo build --release
 
 # This is the 2nd stage: a very small image where we copy the binary."
 FROM docker.io/library/ubuntu:20.04
 LABEL description="Multistage Docker image for Substrate Node Template" \
   image.type="builder" \
-  image.authors="you@email.com" \
+  image.authors="vivekvpandya@gmail.com" \
   image.vendor="Substrate Developer Hub" \
   image.description="Multistage Docker image for Substrate Node Template" \
   image.source="https://github.com/substrate-developer-hub/substrate-node-template" \
@@ -19,6 +16,7 @@ LABEL description="Multistage Docker image for Substrate Node Template" \
 
 # Copy the node binary.
 COPY --from=builder /node-template/target/release/node-template /usr/local/bin
+
 
 RUN useradd -m -u 1000 -U -s /bin/sh -d /node-dev node-dev && \
   mkdir -p /chain-data /node-dev/.local/share && \

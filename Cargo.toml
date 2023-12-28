@@ -1,13 +1,13 @@
 [workspace]
 members = [
-    "node",
-    "pallets/template",
-    "runtime",
-    # "provers/*"
+    "node/pallets/*",
+    "node/runtime",
+    "node/node",
 ]
 
 exclude = [
-    "provers"
+    "prover"
 ]
+
 [profile.release]
 panic = "unwind"
