@@ -18,4 +18,14 @@ cargo run
 The pallet serves as the verifier, using the [risc0-zkvm ](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/). This was derived from the Substrate template, so the pallet still shares the name of the boilerplate [template pallet](https://github.com/justinFrevert/substrate-risc0/tree/main/pallets/template). 
 
 ## Substrate and local development
-If unfamiliar with Substrate and how to run Substrate-based nodes, please see the [Substrate Node Template](https://github.com/substrate-developer-hub/substrate-node-template), as the steps are the same.
+If unfamiliar with Substrate and how to install Substrate dependencies and run Substrate-based nodes, please see the [Substrate Node Template](https://github.com/substrate-developer-hub/substrate-node-template).
+
+Building the node:
+```shell
+cargo +nightly build --release
+```
+
+Run the node:
+```shell
+./target/release/node-template --dev
+```
